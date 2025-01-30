@@ -31,7 +31,7 @@ mongoose.connect(MONGO_URI)
     .catch((error) => console.log(error.message));
 
     // mongoose.set('useFindAndModify', false);
-// dotenv.config();
+dotenv.config();
 
 // mongoose.connect
 //     (process.env.MANGO_DB, { useNewUrlParser: true, useUnifiedTopology: true}
