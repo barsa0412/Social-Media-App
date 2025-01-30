@@ -23,15 +23,23 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-dotenv.config();
+const MONGO_URI= 'mongodb+srv://barsa0412:barsa0412@cluster0.fmw9z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const PORT = process.env.PORT || 5000;
 
-mongoose.connect
-    (process.env.MANGO_DB, { useNewUrlParser: true, useUnifiedTopology: true}
-    ). then(() =>
-        app.listen(process.env.PORT, () => console.log(`listening at ${process.env.PORT}`))
-    ).catch((error) =>
-        console.log('error')
-    )
+mongoose.connect(MONGO_URI) 
+    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+    .catch((error) => console.log(error.message));
+
+    // mongoose.set('useFindAndModify', false);
+// dotenv.config();
+
+// mongoose.connect
+//     (process.env.MANGO_DB, { useNewUrlParser: true, useUnifiedTopology: true}
+//     ).then(() =>
+//         app.listen(process.env.PORT, () => console.log(`listening at ${process.env.PORT}`))
+//     ).catch((error) =>
+//         console.log('error')
+//     )
 
 
     //use of routes
